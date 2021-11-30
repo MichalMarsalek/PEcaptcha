@@ -216,10 +216,10 @@ def test_from_disk(model_name="model0"):
     total = 0
     for file in listdir(dir):
         image = cv.imread(f"{dir}\\{file}")
+        total += 1
         try:
             pred, _, _ = solve(model, image)
             correct += (pred + ".png") == file
-            total += 1
         except:
             continue
     return correct/total
